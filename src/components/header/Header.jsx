@@ -5,7 +5,7 @@ import { HashLink } from "react-router-hash-link"
 function Header() {
   return (
     <div className="header">
-      <span>Skel's Archenemy Reference</span>
+      <span>Skel's MTG Archenemy Reference</span>
       <nav>
         <a
           href="https://magic.wizards.com/en/formats/archenemy"

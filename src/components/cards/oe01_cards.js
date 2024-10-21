@@ -1,14 +1,12 @@
-const oe01_cards = import.meta.glob("../../assets/oe01/*");
+let cardList = [];
 
-let cardList = []
-
-for (let i = 0; i < 45; i++) {
-  const path = `../../assets/oe01/oe01_card_${i}`
+for (let i = 0; i < 20; i++) {
+  const path = `/oe01/oe01_card_${i}.jpg`;
   cardList.push({
     id: i,
     set: "oe01",
-    image: oe01_cards[path], // Use the relative path directly
+    image: path,
   });
 }
 
-export default oe01_cards;
+export default cardList;

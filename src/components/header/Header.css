@@ -1,13 +1,17 @@
 .header {
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
     width: 100%;
 }
 
-.header .nav {
+.header span {
+    width: 35%;
+}
+
+.header nav {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    width: 50%;
+    width: 65%;
 }
