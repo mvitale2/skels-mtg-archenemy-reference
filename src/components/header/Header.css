@@ -1,8 +1,12 @@
 .header {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    background-color: var(--bg-color-2);
+    height: 8rem;
+    gap: 10px;
 }
 
 .header span {

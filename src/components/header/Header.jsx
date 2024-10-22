@@ -1,11 +1,10 @@
 import React from 'react'
 import "./Header.css"
-import { HashLink } from "react-router-hash-link"
 
 function Header() {
   return (
     <div className="header">
-      <span>Skel's MTG Archenemy Reference</span>
+      <h1>Skel's MTG Archenemy Reference</h1>
       <nav>
         <a
           href="https://magic.wizards.com/en/formats/archenemy"
@@ -15,7 +14,7 @@ function Header() {
           Original Archenemy Rules
         </a>
         <a 
-          href="https://magic.wizards.com/en/news/announcements/evolving-archenemy"
+          href="https://magic.wizards.com/en/formats/archenemy-commander"
           target="__blank"
           rel="noopener noreferrer"
         >
