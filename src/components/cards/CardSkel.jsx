@@ -3,11 +3,25 @@
 
 import { useState, useEffect } from "react";
 
-const cardList = () => {
-  const [dscCards, setDscCards] = useState([]);
+const CardSkel = (props) => {
+  const [Cards, setCards] = useState([]);
 
   useEffect(() => {
-    const images = import.meta.glob("../../assets/dsc/*.jpg");
+    // For the silly methods that can't use non-literal strings (looking at you replace & glob >:[)
+    let filePath = ""
+    let rmPath = ""
+    if (props.set_code == 'oarc') {
+      filePath = import.meta.glob("../../assets/oarc/*.jpg");
+      rmPath = "/src/assets/oarc/"
+    } else if (props.set_code == 'oe01') {
+      filePath = import.meta.glob("../../assets/oe01/*.jpg");
+      rmPath = "/src/assets/oe01/"
+    } else if (props.set_code == 'dsc') {
+      filePath = import.meta.glob("../../assets/dsc/*.jpg");
+      rmPath = "/src/assets/dsc/"
+    }
+
+    const images = filePath;
     let cardList = [];
     let index = 0;
 
@@ -17,9 +31,12 @@ const cardList = () => {
         await images[path](); // Wait for each image to be imported
         // Vite serves assets in the src/assets folder as /src/assets/
         const publicPath = path.replace("../../assets", "/src/assets");
-        const fileName = publicPath.replace("/src/assets/dsc/", '')
+        // Get the file name
+        const fileName = publicPath.replace(rmPath, '')
+        // Get the card title for displaying/filtering
         const cardTitle = fileName.replace(/_/g, " ").replace(".jpg", "")
 
+        // Declare props
         cardList.push({
           image: publicPath, // Now it points to the correct URL
           title: cardTitle,
@@ -29,7 +46,7 @@ const cardList = () => {
       }
 
       // Update state once all images are loaded
-      setDscCards(cardList);
+      setCards(cardList);
     };
 
     loadImages(); // Trigger the async loading function
@@ -37,15 +54,15 @@ const cardList = () => {
 
   return (
     <>
-      {dscCards.map((card) => (
+      {Cards.map((card) => (
         <div className="card" key={card.id}>
           <img src={card.image} alt={`Card ${card.id}`} />
           <span>Title: {card.title}</span>
-          <span>Set: dsc</span>
+          <span>Set: {`${props.set_code}`}</span>
         </div>
       ))}
     </>
   );
 };
 
-export default cardList;
+export default CardSkel;
