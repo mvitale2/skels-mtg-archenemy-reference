@@ -4,7 +4,7 @@ import requests # type: ignore
 import time
 
 # Configuration
-SET_CODE = "oe01"  # Target set code
+SET_CODE = "dsc"  # Target set code
 IMAGE_FOLDER = f"C:\\projects\\mtg-archenemy\\src\\assets\\{SET_CODE}"
 os.makedirs(IMAGE_FOLDER, exist_ok=True)
 
@@ -13,15 +13,15 @@ with open(os.path.join(os.getcwd(), "default-cards-20241021091233.json"), "r", e
     cards = json.load(file)
 
 # Filter cards by the specified set code
-filtered_cards = [card for card in cards if card["set"].lower() == SET_CODE]
+filtered_cards = [card for card in cards if card["set"].lower() == SET_CODE.lower() and "scheme" in card["type_line"].lower()]
 
 # Download images for the filtered cards
 i = 0
 for card in filtered_cards:
     try:
         image_url = card["image_uris"]["normal"]  # Adjust size if needed
-        #card_name = card["name"].replace("/", "-").replace(" ", "_").replace("?", "")
-        card_name = f"{SET_CODE}_card_{i}"
+        title = card["name"].replace("/", "-").replace(" ", "_").replace("?", "")
+        card_name = f"{title}"
         file_path = f"{IMAGE_FOLDER}/{card_name}.jpg"
 
         if not os.path.exists(file_path):
