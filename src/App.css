@@ -7,4 +7,18 @@
     --font-color: #bfbfbf;
     --bg-color: #242424;
     --bg-color-2: #6a6a6a;
+    --btn-color: rgb(235, 159, 130);
+    --btn-color-hover: rgb(211, 32, 42);
+}
+
+button {
+    color: var(--bg-color);
+    background-color: var(--btn-color);
+    border: none;
+}
+
+button:hover {
+    transition: all ease 0.3s;
+    background-color: var(--btn-color-hover);
+    cursor: pointer;
 }

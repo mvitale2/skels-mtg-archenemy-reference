@@ -1,30 +1,27 @@
 import React, { useState } from "react";
+import "./Checkmarks.css";
 import "./Filters.css";
 
-function Filters({ onFilterSubmit }) {
-  const [useOarc, setOarc] = useState(true)
+function Filters({ onFilterChange }) {
+  const [useOarc, setOarc] = useState(true);
   const [useOe01, setOe01] = useState(true);
   const [useDsc, setDsc] = useState(true);
   const [useReprints, setReprints] = useState(true);
 
   const handleFilterChange = (e) => {
     const { id, checked } = e.target;
-    console.log(`${id} is ${checked}`)
     if (id == "oarc") {
-      setOarc(!useOarc)
-      console.log(`oarc is now ${useOarc}`)
+      setOarc(!useOarc);
     } else if (id === "oe01") {
-      setOe01(!useOe01)
-      console.log(`oe01 is now ${useOe01}`)
+      setOe01(!useOe01);
     } else if (id === "dsc") {
-      setDsc(!useDsc)
-      console.log(`dsc is now ${useDsc}`)
+      setDsc(!useDsc);
     } else if (id === "reprints") {
-      setReprints(!useReprints)
-      console.log(`reprints is now ${useReprints}`)
+      setReprints(!useReprints);
     }
-  }
-  
+    onFilterChange({ id, checked });
+  };
+
   return (
     <div className="filters">
       <form
@@ -82,9 +79,6 @@ function Filters({ onFilterSubmit }) {
           </div>
         </div>
         <div className="buttons">
-          <button className="submit-btn" type="submit" onSubmit={onFilterSubmit}>
-            Apply Filters
-          </button>
           <button className="deck-btn">Create Scheme Deck From Filters</button>
         </div>
       </form>
