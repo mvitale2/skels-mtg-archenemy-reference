@@ -1,3 +1,9 @@
-.filters .filters-form .selections .filter label {
-    margin-left: 5px;
+/* https://moderncss.dev/pure-css-custom-checkbox-style/ */
+
+label {
+    font-size: 16px;
+    font-weight: bold;
+    display: grid;
+    grid-template-columns: 1em auto;
+    gap: 0.5em
 }

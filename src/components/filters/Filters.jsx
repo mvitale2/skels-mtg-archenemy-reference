@@ -34,52 +34,65 @@ function Filters({ onFilterChange }) {
       >
         <div className="selections">
           <div className="filter">
-            <input
-              className="chkbox"
-              type="checkbox"
-              id="oarc"
-              name="oarc-chkbox"
-              checked={useOarc}
-              onChange={handleFilterChange}
-            ></input>
-            <label htmlFor="oarc-chkbox">Enable Original Schemes</label>
+            <label htmlFor="oarc-chkbox">
+              <input
+                className="chkbox"
+                type="checkbox"
+                id="oarc"
+                name="oarc-chkbox"
+                checked={useOarc}
+                onChange={handleFilterChange}
+              />
+              Enable Original Schemes
+            </label>
           </div>
           <div className="filter">
-            <input
-              className="chkbox"
-              type="checkbox"
-              name="oe01-chkbox"
-              id="oe01"
-              checked={useOe01}
-              onChange={handleFilterChange}
-            ></input>
-            <label htmlFor="oe01-chkbox">Enable Nicol Bolas Schemes</label>
+            <label htmlFor="oe01-chkbox">
+              <input
+                className="chkbox"
+                type="checkbox"
+                name="oe01-chkbox"
+                id="oe01"
+                checked={useOe01}
+                onChange={handleFilterChange}
+              />
+              Enable Nicol Bolas Schemes
+            </label>
           </div>
           <div className="filter">
-            <input
-              className="chkbox"
-              type="checkbox"
-              name="dsc-chkbox"
-              id="dsc"
-              checked={useDsc}
-              onChange={handleFilterChange}
-            ></input>
-            <label htmlFor="dsc-chkbox">Enable Duskmourn Schemes</label>
+            <label htmlFor="dsc-chkbox">
+              <input
+                className="chkbox"
+                type="checkbox"
+                name="dsc-chkbox"
+                id="dsc"
+                checked={useDsc}
+                onChange={handleFilterChange}
+              />
+              Enable Duskmourn Schemes
+            </label>
           </div>
           <div className="filter">
-            <input
-              className="chkbox"
-              type="checkbox"
-              id="reprints"
-              name="reprints-chkbox"
-              onChange={handleFilterChange}
-              checked={useReprints}
-            ></input>
-            <label htmlFor="reprints">Allow reprints?</label>
+            <label htmlFor="reprints">
+              <input
+                className="chkbox"
+                type="checkbox"
+                id="reprints"
+                name="reprints-chkbox"
+                onChange={handleFilterChange}
+                checked={useReprints}
+              />
+              Allow reprints?
+            </label>
           </div>
         </div>
         <div className="buttons">
-          <button className="deck-btn" disabled={useDsc || useOarc || useOe01 ? null : true}>Create Scheme Deck From Filters</button>
+          <button
+            className="deck-btn"
+            disabled={useDsc || useOarc || useOe01 ? null : true}
+          >
+            Create Scheme Deck From Filters
+          </button>
         </div>
       </form>
     </div>
