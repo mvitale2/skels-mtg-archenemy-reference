@@ -9,6 +9,7 @@
     --bg-color-2: #6a6a6a;
     --btn-color: rgb(235, 159, 130);
     --btn-color-hover: rgb(211, 32, 42);
+    --btn-disabled: #f3c5b3;
 }
 
 button {
@@ -17,7 +18,12 @@ button {
     border: none;
 }
 
-button:hover {
+button:disabled {
+    background-color: var(--btn-disabled);
+    color: var(--font-color);
+}
+
+button:enabled:hover {
     transition: all ease 0.3s;
     background-color: var(--btn-color-hover);
     cursor: pointer;

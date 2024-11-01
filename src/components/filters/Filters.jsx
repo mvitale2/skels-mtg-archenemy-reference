@@ -79,7 +79,7 @@ function Filters({ onFilterChange }) {
           </div>
         </div>
         <div className="buttons">
-          <button className="deck-btn">Create Scheme Deck From Filters</button>
+          <button className="deck-btn" disabled={useDsc || useOarc || useOe01 ? null : true}>Create Scheme Deck From Filters</button>
         </div>
       </form>
     </div>
