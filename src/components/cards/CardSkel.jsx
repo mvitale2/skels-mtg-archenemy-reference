@@ -15,6 +15,7 @@ const CardSkel = (props) => {
   ];
 
   useEffect(() => {
+    console.log("reloaded cards")
     // For the silly methods that can't use non-literal strings (looking at you replace & glob >:[)
     let filePath = "";
     let rmPath = "";
@@ -45,7 +46,7 @@ const CardSkel = (props) => {
         const cardTitle = fileName.replace(/_/g, " ").replace(".jpg", "");
 
         // Filter out older versions of cards and only display those same cards from dsc (the latest version)
-        if (props.reprints || !Reprints.includes(cardTitle) || props.set_code == "dsc") {
+        if (props.reprints || props.set_code == "dsc" || (!Reprints.includes(cardTitle) || props.dsc == false)) {
           cardList.push({
             image: publicPath,
             title: cardTitle,
@@ -60,7 +61,7 @@ const CardSkel = (props) => {
     };
 
     loadImages(); // Trigger the async loading function
-  }, [props.reprints]);
+  }, [props]);
 
   return (
     <>
