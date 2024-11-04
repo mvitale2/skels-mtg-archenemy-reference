@@ -1,21 +1,21 @@
 .header {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    background-color: var(--bg-color-2);
-    height: 15vh;
-    gap: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  background-color: var(--bg-color-2);
+  height: 15vh;
+  gap: 10px;
 }
 
-.header span {
-    width: 35%;
+.header h1 {
+  color: var(--font-color-1);
 }
 
 .header nav {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 65%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 65%;
 }

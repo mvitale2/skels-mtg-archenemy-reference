@@ -11,14 +11,14 @@ function Header() {
           target="__blank"
           rel="noopener noreferrer"
         >
-          Original Archenemy Rules
+          <h2>Original Archenemy Rules</h2>
         </a>
         <a 
           href="https://magic.wizards.com/en/formats/archenemy-commander"
           target="__blank"
           rel="noopener noreferrer"
         >
-          Commander Archenemy Rules
+          <h2>Commander Archenemy Rules</h2>
         </a>
       </nav>
     </div>

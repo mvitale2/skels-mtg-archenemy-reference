@@ -29,4 +29,5 @@
     margin: 5px;
     opacity: 0.5;
     text-align: center;
+    color: var(--font-color-1);
 }

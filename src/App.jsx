@@ -25,7 +25,12 @@ function App() {
     <>
       <Header />
       <Filters onFilterChange={handleFilterChange} />
-      <Cards oarc={filters.oarc} oe01={filters.oe01} dsc={filters.dsc} />
+      <Cards 
+        oarc={filters.oarc} 
+        oe01={filters.oe01} 
+        dsc={filters.dsc} 
+        reprints={filters.reprints}
+      />
     </>
   );
 }
