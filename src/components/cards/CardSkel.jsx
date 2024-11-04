@@ -5,20 +5,28 @@ import { useState, useEffect } from "react";
 
 const CardSkel = (props) => {
   const [Cards, setCards] = useState([]);
+  const Reprints = [
+    "Behold the Power of Destruction",
+    "Choose Your Champion",
+    "My Crushing Masterstroke",
+    "Choose Your Demise",
+    "My Laughter Echoes",
+    "When Will You Learn",
+  ];
 
   useEffect(() => {
     // For the silly methods that can't use non-literal strings (looking at you replace & glob >:[)
-    let filePath = ""
-    let rmPath = ""
-    if (props.set_code == 'oarc') {
+    let filePath = "";
+    let rmPath = "";
+    if (props.set_code == "oarc") {
       filePath = import.meta.glob("../../assets/oarc/*.jpg");
-      rmPath = "/src/assets/oarc/"
-    } else if (props.set_code == 'oe01') {
+      rmPath = "/src/assets/oarc/";
+    } else if (props.set_code == "oe01") {
       filePath = import.meta.glob("../../assets/oe01/*.jpg");
-      rmPath = "/src/assets/oe01/"
-    } else if (props.set_code == 'dsc') {
+      rmPath = "/src/assets/oe01/";
+    } else if (props.set_code == "dsc") {
       filePath = import.meta.glob("../../assets/dsc/*.jpg");
-      rmPath = "/src/assets/dsc/"
+      rmPath = "/src/assets/dsc/";
     }
 
     const images = filePath;
@@ -32,16 +40,18 @@ const CardSkel = (props) => {
         // Vite serves assets in the src/assets folder as /src/assets/
         const publicPath = path.replace("../../assets", "/src/assets");
         // Get the file name
-        const fileName = publicPath.replace(rmPath, '')
+        const fileName = publicPath.replace(rmPath, "");
         // Get the card title for displaying/filtering
-        const cardTitle = fileName.replace(/_/g, " ").replace(".jpg", "")
+        const cardTitle = fileName.replace(/_/g, " ").replace(".jpg", "");
 
-        // Declare props
-        cardList.push({
-          image: publicPath, // Now it points to the correct URL
-          title: cardTitle,
-          id: index,
-        });
+        // Filter out older versions of cards and only display those same cards from dsc (the latest version)
+        if (props.reprints || !Reprints.includes(cardTitle) || props.set_code == "dsc") {
+          cardList.push({
+            image: publicPath,
+            title: cardTitle,
+            id: index,
+          });
+        }
         index += 1;
       }
 
@@ -50,7 +60,7 @@ const CardSkel = (props) => {
     };
 
     loadImages(); // Trigger the async loading function
-  }, []); // Empty dependency array ensures this runs only once on mount
+  }, [props.reprints]);
 
   return (
     <>

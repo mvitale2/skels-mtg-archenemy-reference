@@ -82,7 +82,7 @@ function Filters({ onFilterChange }) {
                 onChange={handleFilterChange}
                 checked={useReprints}
               />
-              Allow reprints?
+              Allow duplicates?
             </label>
           </div>
         </div>
