@@ -23,9 +23,7 @@ function Filters({ onFilterChange }) {
   };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
     console.log("Creating deck...")
-    
   }
 
   return (
