@@ -22,6 +22,10 @@ function Filters({ onFilterChange }) {
     onFilterChange({ id, checked });
   };
 
+  const handleSubmit = (e) => {
+    console.log("Creating deck...")
+  }
+
   return (
     <div className="filters">
       <form
@@ -89,7 +93,7 @@ function Filters({ onFilterChange }) {
         <div className="buttons">
           <button
             className="deck-btn"
-            disabled={useDsc || useOarc || useOe01 ? null : true}
+            disabled={useDsc || useOarc || useOe01 ? null : true} onClick={handleSubmit}
           >
             Create Scheme Deck From Filters
           </button>
