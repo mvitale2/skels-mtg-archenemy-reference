@@ -1,8 +1,9 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import "./Checkmarks.css";
 import "./Filters.css";
 
-function Filters({ onFilterChange }) {
+function Filters({ onFilterChange, onSubmit }) {
   const [useOarc, setOarc] = useState(true);
   const [useOe01, setOe01] = useState(true);
   const [useDsc, setDsc] = useState(true);
@@ -23,8 +24,8 @@ function Filters({ onFilterChange }) {
   };
 
   const handleSubmit = (e) => {
-    console.log("Creating deck...")
-  }
+    console.log("Creating deck...");
+  };
 
   return (
     <div className="filters">
@@ -91,12 +92,15 @@ function Filters({ onFilterChange }) {
           </div>
         </div>
         <div className="buttons">
-          <button
-            className="deck-btn"
-            disabled={useDsc || useOarc || useOe01 ? null : true} onClick={handleSubmit}
-          >
-            Create Scheme Deck From Filters
-          </button>
+          <Link to="/deck">
+            <button
+              className="deck-btn"
+              disabled={useDsc || useOarc || useOe01 ? null : true}
+              onClick={handleSubmit}
+            >
+              Create Scheme Deck From Filters
+            </button>
+          </Link>
         </div>
       </form>
     </div>
