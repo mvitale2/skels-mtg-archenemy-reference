@@ -1,13 +1,14 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 import "./Checkmarks.css";
 import "./Filters.css";
 
-function Filters({ onFilterChange, onSubmit }) {
+function Filters({ onFilterChange }) {
   const [useOarc, setOarc] = useState(true);
   const [useOe01, setOe01] = useState(true);
   const [useDsc, setDsc] = useState(true);
   const [useReprints, setReprints] = useState(true);
+  const [deckMode, setDeckMode] = useState(false)
 
   const handleFilterChange = (e) => {
     const { id, checked } = e.target;
@@ -19,12 +20,10 @@ function Filters({ onFilterChange, onSubmit }) {
       setDsc(!useDsc);
     } else if (id === "reprints") {
       setReprints(!useReprints);
+    } else if (id === "deckMode") {
+      setDeckMode(!deckMode);
     }
     onFilterChange({ id, checked });
-  };
-
-  const handleSubmit = (e) => {
-    console.log("Creating deck...");
   };
 
   return (
@@ -90,17 +89,19 @@ function Filters({ onFilterChange, onSubmit }) {
               Allow duplicates?
             </label>
           </div>
-        </div>
-        <div className="buttons">
-          <Link to="/deck">
-            <button
-              className="deck-btn"
-              disabled={useDsc || useOarc || useOe01 ? null : true}
-              onClick={handleSubmit}
-            >
-              Create Scheme Deck From Filters
-            </button>
-          </Link>
+          <div className="filter">
+            <label htmlFor="deck">
+              <input
+                className="chkbox"
+                type="checkbox"
+                id="deckMode"
+                name="deck-chkbox"
+                onChange={handleFilterChange}
+                checked={deckMode}
+              />
+              Enable Deck Mode
+            </label>
+          </div>
         </div>
       </form>
     </div>
