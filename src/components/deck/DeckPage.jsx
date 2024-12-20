@@ -1,6 +1,5 @@
 import React from "react";
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import "./Deck.css";
 import Deck from "./Deck";
 
@@ -18,10 +17,7 @@ function DeckPage() {
 
   return (
     <div className="deck-container">
-      <div className="home">
-        <Link to="/">Return Home</Link>
-      </div>
-      <div className="deck"><Deck/></div>
+      <div className="deck"><Deck i={iterator}/></div>
       <div className="nav-bar">
         <button className="prev" onClick={handleClick}>
           Previous

@@ -61,7 +61,7 @@ const CardSkel = (props) => {
     };
 
     loadImages(); // Trigger the async loading function
-  }, [props]);
+  }, []);
 
   return (
     <>

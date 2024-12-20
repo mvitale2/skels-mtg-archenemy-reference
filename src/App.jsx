@@ -12,7 +12,10 @@ function App() {
     dsc: true,
     reprints: true,
     deckMode: false,
+    cards: []
   });
+
+  const [cardList, setCardList] = useState([]);
 
   const handleFilterChange = ({ id, checked }) => {
     console.log(`received id: ${id}`)
@@ -25,13 +28,14 @@ function App() {
 
   function Body({ mode }) {
     return mode ? (
-      <DeckPage />
+      <DeckPage cards={cardList} />
     ) : (
       <Cards
         oarc={filters.oarc}
         oe01={filters.oe01}
         dsc={filters.dsc}
         reprints={filters.reprints}
+        setCardList={setCardList}
       />
     );
   }

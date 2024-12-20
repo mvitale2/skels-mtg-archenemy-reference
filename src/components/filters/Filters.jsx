@@ -46,6 +46,7 @@ function Filters({ onFilterChange }) {
                 name="oarc-chkbox"
                 checked={useOarc}
                 onChange={handleFilterChange}
+                disabled={deckMode ? "disabled" : ""}
               />
               Enable Original Schemes
             </label>
@@ -59,6 +60,7 @@ function Filters({ onFilterChange }) {
                 id="oe01"
                 checked={useOe01}
                 onChange={handleFilterChange}
+                disabled={deckMode ? "disabled" : ""}
               />
               Enable Nicol Bolas Schemes
             </label>
@@ -72,6 +74,7 @@ function Filters({ onFilterChange }) {
                 id="dsc"
                 checked={useDsc}
                 onChange={handleFilterChange}
+                disabled={deckMode ? "disabled" : ""}
               />
               Enable Duskmourn Schemes
             </label>
@@ -85,6 +88,7 @@ function Filters({ onFilterChange }) {
                 name="reprints-chkbox"
                 onChange={handleFilterChange}
                 checked={useReprints}
+                disabled={deckMode ? "disabled" : ""}
               />
               Allow duplicates?
             </label>
