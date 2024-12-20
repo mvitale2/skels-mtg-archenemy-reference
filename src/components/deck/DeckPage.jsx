@@ -3,7 +3,7 @@ import { useState } from "react";
 import "./Deck.css";
 import Deck from "./Deck";
 
-function DeckPage() {
+function DeckPage({ oarc, oe01, dsc, reprints }) {
   const [iterator, setIterator] = useState(1)
 
   const handleClick = (e) => {
@@ -17,7 +17,7 @@ function DeckPage() {
 
   return (
     <div className="deck-container">
-      <div className="deck"><Deck i={iterator}/></div>
+      {/* <div className="deck"><Deck i={iterator}/></div> */}
       <div className="nav-bar">
         <button className="prev" onClick={handleClick}>
           Previous
