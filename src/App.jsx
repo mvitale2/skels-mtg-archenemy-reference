@@ -14,8 +14,8 @@ function App() {
   });
 
   const handleFilterChange = ({ id, checked }) => {
-    console.log(`received id: ${id}`)
-    console.log(`received value: ${checked}`)
+    // console.log(`received id: ${id}`)
+    // console.log(`received value: ${checked}`)
     setFilters((prevFilters) => ({
       ...prevFilters,
       [id]: checked,

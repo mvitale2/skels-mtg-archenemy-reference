@@ -1,43 +1,28 @@
 .filters {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 10vh;
+  width: 100%;
+  border-top: 1px solid black;
+  background-color: var(--bg-color-2);
+  color: var(--bg-color);
+  top: 0;
+  position: sticky;
+  z-index: 1;
+}
+
+@media (max-width: 768px) {
+  .filters {
     height: 20vh;
-    width: 100%;
-    border-top: 1px solid black;
-    background-color: var(--bg-color-2);
-    color: var(--bg-color);
-    top: 0;
-    position: sticky;
-    z-index: 1;
-}
+    padding: 5px;
+  }
 
-.filters .filters-form {
-    display: flex;
+  .filters {
     justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    height: 100%;
-}
-
-.filters .filters-form .selections {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100%;
-    height: 50%;
-    gap: 10px;
-}
-
-.filters .filters-form .buttons {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    width: 50vw;
-    height: 50%;
-    margin-bottom: 20px;
-}
-
-.filters .filters-form .buttons button {
-    padding: 10px;
+    display: grid;
+  }
+  .filters .filter label {
+    font-size: 12px;
+  }
 }

@@ -1,4 +1,5 @@
 * {
+  box-sizing: border-box;
   padding: 0;
   margin: 0;
   box-sizing: border-box;
@@ -38,3 +39,38 @@ a {
 a:hover {
   text-decoration: underline;
 }
+
+.card {
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 30%;
+}
+
+.card img {
+  border-radius: 1.5rem;
+  width: 100%;
+}
+
+.card span {
+  margin: 5px;
+  opacity: 0.5;
+  text-align: center;
+  color: var(--font-color-1);
+}
+
+@media (max-width: 768px) {
+  .card span {
+    font-size: 6px;
+    margin: 0;
+  }
+  .card span:first-of-type {
+    margin-top: 5px;
+  }
+  .card img {
+    border-radius: 0.5rem;
+  }
+}
+

@@ -4,7 +4,6 @@
 import { useEffect } from "react";
 
 const CardSkel = (props) => {
-  
   const Reprints = [
     "Behold the Power of Destruction",
     "Choose Your Champion",
@@ -45,19 +44,26 @@ const CardSkel = (props) => {
         // Get the card title for displaying/filtering
         const cardTitle = fileName.replace(/_/g, " ").replace(".jpg", "");
 
+        let shouldPush = false;
+
         // Filter out older versions of cards and only display those same cards from dsc (the latest version)
-        if (
-          props.reprints ||
-          props.set_code === "dsc" ||
-          !Reprints.includes(cardTitle) ||
-          props.dsc
-        ) {
+        // dsc is the only set with reprints, so if it is true nothing happens
+        if (props.reprints === false && props.dsc) {
+          if (props.set_code === "dsc" || !Reprints.includes(cardTitle)) {
+            shouldPush = true;
+          }
+        } else {
+          shouldPush = true;
+        }
+
+        if (shouldPush) {
           cardList.push({
             image: publicPath,
             title: cardTitle,
             id: index,
           });
         }
+
         index += 1;
       }
 
@@ -66,7 +72,7 @@ const CardSkel = (props) => {
     };
 
     loadImages(); // Trigger the async loading function
-  }, []);
+  }, [props.reprints]);
 
   return (
     <>

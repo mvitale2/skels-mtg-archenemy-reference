@@ -8,7 +8,7 @@ function Filters({ onFilterChange }) {
   const [useOe01, setOe01] = useState(true);
   const [useDsc, setDsc] = useState(true);
   const [useReprints, setReprints] = useState(true);
-  const [deckMode, setDeckMode] = useState(false)
+  const [deckMode, setDeckMode] = useState(false);
 
   const handleFilterChange = (e) => {
     const { id, checked } = e.target;
@@ -28,86 +28,76 @@ function Filters({ onFilterChange }) {
 
   return (
     <div className="filters">
-      <form
-        className="filters-form"
-        name="filters-form"
-        onSubmit={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-        }}
-      >
-        <div className="selections">
-          <div className="filter">
-            <label htmlFor="oarc-chkbox">
-              <input
-                className="chkbox"
-                type="checkbox"
-                id="oarc"
-                name="oarc-chkbox"
-                checked={useOarc}
-                onChange={handleFilterChange}
-                disabled={deckMode ? "disabled" : ""}
-              />
-              Enable Original Schemes
-            </label>
-          </div>
-          <div className="filter">
-            <label htmlFor="oe01-chkbox">
-              <input
-                className="chkbox"
-                type="checkbox"
-                name="oe01-chkbox"
-                id="oe01"
-                checked={useOe01}
-                onChange={handleFilterChange}
-                disabled={deckMode ? "disabled" : ""}
-              />
-              Enable Nicol Bolas Schemes
-            </label>
-          </div>
-          <div className="filter">
-            <label htmlFor="dsc-chkbox">
-              <input
-                className="chkbox"
-                type="checkbox"
-                name="dsc-chkbox"
-                id="dsc"
-                checked={useDsc}
-                onChange={handleFilterChange}
-                disabled={deckMode ? "disabled" : ""}
-              />
-              Enable Duskmourn Schemes
-            </label>
-          </div>
-          <div className="filter">
-            <label htmlFor="reprints">
-              <input
-                className="chkbox"
-                type="checkbox"
-                id="reprints"
-                name="reprints-chkbox"
-                onChange={handleFilterChange}
-                checked={useReprints}
-                disabled={deckMode ? "disabled" : ""}
-              />
-              Allow duplicates?
-            </label>
-          </div>
-          <div className="filter">
-            <label htmlFor="deck">
-              <input
-                className="chkbox"
-                type="checkbox"
-                id="deckMode"
-                name="deck-chkbox"
-                onChange={handleFilterChange}
-                checked={deckMode}
-              />
-              Enable Deck Mode
-            </label>
-          </div>
-        </div>
-      </form>
+      <div className="filter">
+        <label htmlFor="oarc-chkbox" id="oarc">
+          <input
+            className="chkbox"
+            type="checkbox"
+            id="oarc"
+            name="oarc-chkbox"
+            checked={useOarc}
+            onChange={handleFilterChange}
+            disabled={deckMode ? "disabled" : ""}
+          />
+          Original Schemes
+        </label>
+      </div>
+      <div className="filter">
+        <label htmlFor="oe01-chkbox" id="oe01">
+          <input
+            className="chkbox"
+            type="checkbox"
+            name="oe01-chkbox"
+            id="oe01"
+            checked={useOe01}
+            onChange={handleFilterChange}
+            disabled={deckMode ? "disabled" : ""}
+          />
+          Nicol Bolas Schemes
+        </label>
+      </div>
+      <div className="filter">
+        <label htmlFor="dsc-chkbox" id="dsc">
+          <input
+            className="chkbox"
+            type="checkbox"
+            name="dsc-chkbox"
+            id="dsc"
+            checked={useDsc}
+            onChange={handleFilterChange}
+            disabled={deckMode ? "disabled" : ""}
+          />
+          Duskmourn Schemes
+        </label>
+      </div>
+      <div className="filter">
+        <label htmlFor="reprints" id="reprints">
+          <input
+            className="chkbox"
+            type="checkbox"
+            id="reprints"
+            name="reprints-chkbox"
+            onChange={handleFilterChange}
+            checked={useReprints}
+            disabled={deckMode ? "disabled" : ""}
+          />
+          Allow duplicates?
+        </label>
+      </div>
+      <div className="filter">
+        <label htmlFor="deck" id="deck">
+          <input
+            className="chkbox"
+            type="checkbox"
+            id="deckMode"
+            name="deck-chkbox"
+            onChange={handleFilterChange}
+            checked={deckMode}
+            disabled={!useDsc && !useOarc && !useOe01 ? "disabled" : ""}
+          />
+          {`${deckMode ? "Disable" : "Enable"} Deck Mode`}
+        </label>
+      </div>
     </div>
   );
 }

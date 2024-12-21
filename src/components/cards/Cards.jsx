@@ -2,7 +2,7 @@ import React from "react";
 import { useState, useEffect } from "react";
 import CardSkel from "./CardSkel.jsx";
 import "./Cards.css";
-// import DeckPage from "../deck/DeckPage.jsx";
+import DeckPage from "../deck/DeckPage.jsx";
 
 function Cards({ oarc, oe01, dsc, reprints, deckMode }) {
   const [oarcCards, setOarcCards] = useState([]);
@@ -10,22 +10,31 @@ function Cards({ oarc, oe01, dsc, reprints, deckMode }) {
   const [dscCards, setDscCards] = useState([]);
   const [Cards, setCards] = useState([]);
 
-  function CombineCards() {
-    const combinedCards = [...oarcCards, ...oe01Cards, ...dscCards];
-    setCards(combinedCards);
-    console.log(Cards);
-  }
+  // function CombineCards() {
+  //   const combinedCards = [...oarcCards, ...oe01Cards, ...dscCards];
+  //   setCards(combinedCards);
+  // }
 
-  // Whenever the filter changes, reset the card lists
+  // Whenever the filters change, reset the card lists
   useEffect(() => {
     oarc ? null : setOarcCards([]);
     oe01 ? null : setOe01Cards([]);
     dsc ? null : setDscCards([]);
-    CombineCards();
+    // console.log(Cards)
   }, [oarc, oe01, dsc, reprints]);
 
+  // When the card states are updated, update the full card list
+  useEffect(() => {
+    const combinedCards = [...oarcCards, ...oe01Cards, ...dscCards];
+    setCards(combinedCards);
+    // console.log(Cards)
+  }, [oarcCards, oe01Cards, dscCards])
+
   return (
-    <div className="gallery">
+    deckMode ? (
+      <DeckPage cards={Cards}/>
+    ) : (
+      <div className="gallery">
       {oarc ? (
         <CardSkel
           set_code="oarc"
@@ -57,6 +66,7 @@ function Cards({ oarc, oe01, dsc, reprints, deckMode }) {
         <span className="empty-msg">You must select at least one set!</span>
       )}
     </div>
+    )
   );
 }
 
