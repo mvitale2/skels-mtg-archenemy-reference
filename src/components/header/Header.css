@@ -20,10 +20,17 @@
   width: 65%;
 }
 
+@media (max-width: 900px) {
+  .header nav {
+    width: 90%;
+  }
+}
+
 @media (max-width: 768px) {
   .header {
     gap: 15px;
     padding: 20px 0;
+    height: 10vh;
   }
 
   .header h1 {

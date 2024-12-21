@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  gap: 10px;
   height: 10vh;
   width: 100%;
   border-top: 1px solid black;
@@ -12,17 +13,36 @@
   z-index: 1;
 }
 
+@media (max-width: 900px) {
+  .filters {
+    padding-left: 10px;
+    padding-right: 10px;
+    height: 5vh;
+  }
+
+  .filters .filter label {
+    font-size: 12px;
+  }
+}
+
 @media (max-width: 768px) {
   .filters {
     height: 20vh;
-    padding: 5px;
-  }
-
-  .filters {
+    gap: 5px;
     justify-content: center;
     display: grid;
   }
+
   .filters .filter label {
     font-size: 12px;
+  }
+}
+
+@media (max-width: 400px) {
+  .filters {
+    height: 20vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
   }
 }
